@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery validation</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style type="text/css">
+            p{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-5 col-md-offset-3">
+                <form name="myForm" action="#" onsubmit="Validate()">
+                    <div class="form-group">
+                        <input type="text" name="" id="name" class="form-control" placeholder="Username">
+                        <p class="nameError"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="" id="password" class="form-control" placeholder="password">
+                        <p class="passErr"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="" class="btn btn-primary" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+            function Validate(){
+                var n = $("#name").val();
+                var p = $("#password").val();                
+                if(n == ""){
+                    $(".nameError").html("Enter name" +" " + '<i class="fa fa-times" aria-hidden="true"></i>');
+                }
+                else if(n.length < 6){
+                    $(".nameError").html("Name must contain 6 letters" +" " + '<i class="fa fa-times" aria-hidden="true"></i>');
+                }
+                else if(n){
+                    $(".nameError").html("");
+                }
+                
+                
+                
+                if(p == ""){
+                     $(".passErr").html("Enter password" +" " + '<i class="fa fa-times" aria-hidden="true"></i>');
+                }
+                else if(p.length<8){
+                     $(".passErr").html("Password must be 8 charecters" +" " + '<i class="fa fa-times" aria-hidden="true"></i>');
+                }
+                else if(p){
+                     $(".passErr").html("");
+                }              
+            }
+        </script>
+    </body>
+</html>
